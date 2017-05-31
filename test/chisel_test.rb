@@ -12,6 +12,13 @@ class ChiselTest < MiniTest::Test
   end
 
 
+  def test_it_initializes_input_markdown
+    c = Chisel.new
+
+    assert_equal "This is the first line of the paragraph.", c.text
+  end
+
+
 
 
 
