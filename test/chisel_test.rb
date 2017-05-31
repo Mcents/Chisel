@@ -57,8 +57,8 @@ class ChiselTest < MiniTest::Test
   end
 
   def test_it_converts_lines_into_paragraphs
-    para = '"You just *have* to try the cheesecake," he said.     "Ever since it appeared in
-    **Food & Wine** this place has been packed every night."'
+    para = "You just *have* to try the cheesecake, he said.     \nEver since it appeared in
+    **Food & Wine** this place has been packed every night."
     actual = Chisel.new("").chunk_to_html(para)
     expected = '<p>"You just *have* to try the cheesecake," he said.     "Ever since it appeared in
     **Food & Wine** this place has been packed every night."</p>'
