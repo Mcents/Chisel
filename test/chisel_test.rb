@@ -42,6 +42,25 @@ class ChiselTest < MiniTest::Test
     assert_equal expected, actual
   end
 
+  def test_it_turns_chunk_into_html_header
+    chunk = '# My Life in Desserts'
+    actual = Chisel.new("").chunk_to_html(chunk)
+    expected = '<h1>My Life in Desserts</h1>'
+
+    assert_equal expected, actual
+
+    chunk = '## Chapter 1: The Beginning'
+    actual = Chisel.new("").chunk_to_html(chunk)
+    expected = '<h2>Chapter 1: The Beginning</h2>'
+
+    assert_equal expected, actual
+  end
+
+  def test_it_converts_lines_into_paragraphs
+
+
+  end
+
 
 
 

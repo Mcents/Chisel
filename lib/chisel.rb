@@ -17,6 +17,16 @@ class Chisel
     string.split("\n")
   end
 
+  def chunk_to_html(markdown_chunk)
+    char = 1 + markdown_chunk.index(" ")
+    last_char = -1
+    header_txt = markdown_chunk[char..last_char]
+
+    level = char - 1
+    "<h#{level}>#{header_txt}</h#{level}>"
+
+  end
+
 im_running_the_program = ($PROGRAM_NAME == __FILE__)
 
 if im_running_the_program
