@@ -35,10 +35,9 @@ class ChiselTest < MiniTest::Test
   # end
 
   def test_it_turns_strings_into_chunks
-    c = Chisel.new
     markdown = "a\nbbca\nbc\n"
     actual = Chisel.new("").string_to_chunks(markdown)
-    expected = ["a\n", "bbca\n", "bc\n"]
+    expected = ["a", "bbca", "bc"]
 
     assert_equal expected, actual
   end

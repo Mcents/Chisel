@@ -13,6 +13,10 @@ class Chisel
     chunks_to_string html_chunks
   end
 
+  def string_to_chunks(string)
+    string.split("\n")
+  end
+
 im_running_the_program = ($PROGRAM_NAME == __FILE__)
 
 if im_running_the_program
