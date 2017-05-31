@@ -6,7 +6,11 @@ class Chisel
   end
 
   def convert_to_html
-    @markdown.reverse
+    markdown_chunks = string_to_chunks(@markdown)
+    html_chunks = markdown_chunks.map do |markdown_chunk|
+      chuunk_to_html(markdown_chunk)
+    end
+    chunks_to_string html_chunks
   end
 
 im_running_the_program = ($PROGRAM_NAME == __FILE__)

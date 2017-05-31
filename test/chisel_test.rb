@@ -8,30 +8,39 @@ class ChiselTest < MiniTest::Test
 
   def test_it_exists
 
-    assert Chisel, Chisel.new
+    assert Chisel, Chisel.new("a")
   end
 
 
-  def test_it_can_convert_to_html
-    markdown = '# My Life in Desserts
+  # def test_it_can_convert_to_html
+  #   markdown = '# My Life in Desserts
+  #
+  #   ## Chapter 1: The Beginning
+  #
+  #   "You just *have* to try the cheesecake," he said. "Ever since it appeared in
+  #   **Food & Wine** this place has been packed every night."'
+  #
+  #   expected_convert = '<h1>My Life in Desserts</h1>
+  #
+  #   <h2>Chapter 1: The Beginning</h2>
+  #
+  #   <p>
+  #   "You just <em>have</em> to try the cheesecake," he said. "Ever since it appeared in
+  #   <strong>Food &amp; Wine</strong> this place has been packed every night."
+  #   </p>'
+  #
+  #   html = Chisel.new(markdown).convert_to_html
+  #   assert_equal expected_convert, html
+  #
+  # end
 
-    ## Chapter 1: The Beginning
+  def test_it_turns_strings_into_chunks
+    c = Chisel.new
+    markdown = "a\nbbca\nbc\n"
+    actual = Chisel.new("").string_to_chunks(markdown)
+    expected = ["a\n", "bbca\n", "bc\n"]
 
-    "You just *have* to try the cheesecake," he said. "Ever since it appeared in
-    **Food & Wine** this place has been packed every night."'
-
-    expected_convert = '<h1>My Life in Desserts</h1>
-
-    <h2>Chapter 1: The Beginning</h2>
-
-    <p>
-    "You just <em>have</em> to try the cheesecake," he said. "Ever since it appeared in
-    <strong>Food &amp; Wine</strong> this place has been packed every night."
-    </p>'
-
-    html = Chisel.new(markdown).convert_to_html
-    assert_equal expected_convert, html
-
+    assert_equal expected, actual
   end
 
 
